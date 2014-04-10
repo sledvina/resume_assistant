@@ -1,0 +1,60 @@
+<%= @resume.date_created = Date.current() %>
+<p id="notice"><%= notice %></p>
+
+<p> <strong>Your Resume Information:</strong></p>
+<p>
+  <strong>User:</strong>
+  <%= @resume.user %>
+</p>
+
+<p>
+  <strong>Resume Name:</strong>
+  <%= @resume.resume_name %>
+</p>	
+
+<p>
+  <strong>Date Created:</strong>
+  <%= @resume.date_created %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @resume.user_name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @resume.email %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @resume.phone %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @resume.address %>
+</p>
+
+<p> <strong>Your Formatted Resume:</strong></p>
+
+</p>	
+  <%= @resume.user_name %>
+</p>
+
+<p>
+  <%= @resume.email %>
+</p>
+
+<p>
+  <%= @resume.phone %>
+</p>
+
+<p>
+  <%= @resume.address %>
+</p>
+
+
+<%= link_to 'Edit', edit_resume_path(@resume) %> |
+<%= link_to 'Back', resumes_path %>
