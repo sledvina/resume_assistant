@@ -35,6 +35,14 @@
     <%= f.label :accolades %><br>
     <%= f.text_field :accolades %>
   </div>
+  
+  <div class="field">
+    <%= f.label :resume_id %><br>
+	<%= f.collection_select :resume_id, Resume.all, :id, :resume_name, :prompt =>
+	true %>
+	
+  </div>
+  
   <div class="actions">
     <%= f.submit %>
   </div>

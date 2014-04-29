@@ -24,3 +24,13 @@ Then(/^they should see the resume preview page$/) do
                                "1111 Example Address ln Exampletown, EX 55555")
 end
 
+Given(/^a resume exists$/) do
+  visit new_resume_path
+  click_button "Create Resume"
+  fill_in "Resume name", with: "Example Resume"
+  fill_in "User name", with: "Example User"
+  fill_in "Email", with: "User@example.com"
+  fill_in "Phone", with: "4145556666"
+  fill_in "Address", with: "1111 Example Address ln Exampletown, EX 55555"
+  click_button "Create Resume"
+end

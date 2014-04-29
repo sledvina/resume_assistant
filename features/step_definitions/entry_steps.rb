@@ -30,6 +30,23 @@ Then(/^they should see the education entry preview page$/) do
                                         "Summa cum Laude")
 end
 
+When(/^they click the drop down button$/) do
+  select 'Example Resume', from: "Resume"
+end
+
+Then(/^they should be able to create a resume with this association$/) do
+  fill_in "School", with: "Example School"
+  fill_in "Graduation date", with: "2015"
+  fill_in "Degree", with: "Bachelors"
+  fill_in "Major", with: "Comp Sci"
+  fill_in "Gpa", with: "4.00"
+  fill_in "Accolades", with: "Summa cum Laude"
+  
+  click_button "Create Education entry"
+end
+
+
+
 Given(/^User is on the view resume page$/) do
   pending # express the regexp above with the code you wish you had
 end

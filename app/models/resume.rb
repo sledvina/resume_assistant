@@ -1,5 +1,6 @@
 class Resume < ActiveRecord::Base
   belongs_to :user
+  has_many :educational_entries
   before_save { self.email = email.downcase }
   validates :resume_name, presence: true
   validates :user_name, presence: true

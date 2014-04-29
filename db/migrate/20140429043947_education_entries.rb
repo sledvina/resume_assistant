@@ -7,6 +7,7 @@ class EducationEntries < ActiveRecord::Migration
       t.string :major
       t.string :gpa
       t.string :accolades
+      t.references :resume, index: true
 
       t.timestamps
     end

@@ -1,0 +1,8 @@
+Feature: ability to choode the resume an entry belongs to
+		
+	Scenario: Successful creation of education entry with resume association
+		Given a resume exists
+			And a visitor visits the create education entry page
+		When they click the drop down button
+		Then they should be able to create a resume with this association
+		

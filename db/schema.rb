@@ -23,9 +23,12 @@ ActiveRecord::Schema.define(version: 20140429043947) do
     t.string   "major"
     t.string   "gpa"
     t.string   "accolades"
+    t.integer  "resume_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "education_entries", ["resume_id"], name: "index_education_entries_on_resume_id", using: :btree
 
   create_table "entries", force: true do |t|
     t.integer  "resume_id"

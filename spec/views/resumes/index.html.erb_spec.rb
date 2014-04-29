@@ -1,5 +1,6 @@
 require 'spec_helper'
 
+
 describe "resumes/index" do
   before(:each) do
     assign(:resumes, [

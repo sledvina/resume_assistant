@@ -1,6 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+ <strong> Resume: </strong>
+ 
+ <%= @education_entry.resume.try(:resume_name) %> <br>
+ <%= @education_entry.resume.try(:resume_id) %>
+</p>
+
+<p>
   <strong>School:</strong>
   <%= @education_entry.school %>
 </p>
