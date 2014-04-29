@@ -1,6 +1,6 @@
-class EducationEntry < ActiveRecord::Migration
+class EducationEntries < ActiveRecord::Migration
   def change
-    create_table :education_entry do |t|
+    create_table :education_entries do |t|
       t.string :school
       t.string :graduation_date
       t.string :degree
