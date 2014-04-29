@@ -1,4 +1,6 @@
 ResumeAssistant::Application.routes.draw do
+  resources :education_entries
+
   resources :resumes
   resources :entries
   root 'resumes#index'

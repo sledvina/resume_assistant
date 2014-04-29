@@ -1,5 +1,11 @@
 <h1>New entry</h1>
 
-<%= render 'form' %>
+<!-- <%= render 'form' %>
+-->
+<h2>Entry Type:</h2>
+<div><%= link_to 'Education', new_education_entry_path %> </div>
 
-<%= link_to 'Back', entries_path %>
+<br><br>
+
+<%= link_to 'Entries Index', entries_path %>
+<%= link_to 'Resume Index', resumes_path %>

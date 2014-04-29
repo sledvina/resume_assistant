@@ -1,0 +1,14 @@
+1. Give A User the ability to make an educational entry.
+		Go to create entry page.
+		Select education as the type of entry
+		Enter Required School, Graduating Class
+		Enter Optional Degree(s), GPA, 
+		Click Create Entry Buttons
+		See Preview of Entry
+
+2. Add an entry to a Resume. 
+	Given On Resume Page(list of resumes)
+	Edit Existing Resume (or create a new one)
+	Select an entry in the entry dropdown
+	click update resume
+	View resume with entry added

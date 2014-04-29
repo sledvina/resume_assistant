@@ -1,23 +1,33 @@
-Given(/^a visitor visits the create entry page$/) do
-  visit new_entry_path
+Given(/^a visitor visits the create education entry page$/) do
+  visit new_education_entry_path
 end
 
-When(/^they submit invalid entry information$/) do
-  pending # express the regexp above with the code you wish you had
-          # the definition of this step will depend on architecture choices  
-          click_button "Create Entry"
+
+When(/^they submit invalid education entry information$/) do
+  
+          click_button "Create Education entry"
 end
 
-When(/^they submit valid entry information$/) do
-  pending # express the regexp above with the code you wish you had
-          # the definition of this step will depend on architecture choices
-          fill_in "Entry Type", with: "Example Entry"
+When(/^they submit valid education entry information$/) do
+  
+          fill_in "School", with: "Example School"
+          fill_in "Graduation date", with: "2015"
+          fill_in "Degree", with: "Bachelors"
+          fill_in "Major", with: "Comp Sci"
+          fill_in "Gpa", with: "4.00"
+          fill_in "Accolades", with: "Summa cum Laude"
+         
+         click_button "Create Education entry"
 end
 
-Then(/^they should see the entry preview page$/) do
-  pending # express the regexp above with the code you wish you had
-          # the definition of this step will depend on architecture choices
-          expect(page).to have_content("Entry Type")
+Then(/^they should see the education entry preview page$/) do
+  
+          expect(page).to have_content("Example School", 
+                                        "2015", 
+                                        "Bachelors", 
+                                        "Comp Sci", 
+                                        "4.00", 
+                                        "Summa cum Laude")
 end
 
 Given(/^User is on the view resume page$/) do

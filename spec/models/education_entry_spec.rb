@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe Resume do
+describe EducationEntry do
   pending "add some examples to (or delete) #{__FILE__}"
 end
