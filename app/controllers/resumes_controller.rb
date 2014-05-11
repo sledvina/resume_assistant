@@ -10,6 +10,22 @@ class ResumesController < ApplicationController
   # GET /resumes/1
   # GET /resumes/1.json
   def show
+  # entries 
+  # for EducationEntry.All do |entry| 
+  #    if entry.resume_id == @resume.resume_id
+  #      entries.add(entry)
+  #    end  
+  #  end  
+  @Categories = EducationEntry.all
+  @Posts = Array.new
+  @Categories.each do |category|
+    if category.resume_id == @resume.id
+    
+      @Posts.push(category)
+    end
+  end 
+  
+  
   end
 
   # GET /resumes/new

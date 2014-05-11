@@ -69,6 +69,6 @@ class EducationEntriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def education_entry_params
-      params.require(:education_entry).permit(:school, :graduation_date, :degree, :major, :gpa, :accolades)
+      params.require(:education_entry).permit(:school, :graduation_date, :degree, :major, :gpa, :accolades, :resume_id)
     end
 end

@@ -38,7 +38,7 @@
   
   <div class="field">
     <%= f.label :resume %><br>
-	<%= f.collection_select :resume, Resume.all, :id, :resume_name, :prompt =>
+	<%= f.collection_select :resume_id, Resume.all, :id, :resume_name, :prompt =>
 	true %>
 	
   </div>

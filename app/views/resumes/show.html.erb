@@ -1,6 +1,8 @@
 <%= @resume.date_created = Date.current() %>
 <p id="notice"><%= notice %></p>
 
+
+
 <p> <strong>Your Resume Information:</strong></p>
 <p>
   <strong>User:</strong>
@@ -53,6 +55,43 @@
 
 <p>
   <%= @resume.address %>
+</p>
+
+<p> 
+  <% @Posts.each do |post| %>
+  <div>
+   <strong> School: </strong>
+   <%= post.school %>
+  </div>
+  
+  <div>
+   <strong> Graduation Date: </strong>
+   <%= post.graduation_date %>
+  </div>
+	
+  <div>
+   <strong> Degree: </strong>
+   <%= post.degree %>
+  </div>
+  
+  <div>
+   <strong> Major: </strong>
+   <%= post.major %>
+  </div>
+  
+  <div>
+   <strong> GPA: </strong>
+   <%= post.gpa %>
+  </div>
+  
+  <div>
+   <strong> Accolades: </strong>
+   <%= post.accolades %>
+  </div>
+  	
+	<br>
+	
+  <% end %>
 </p>
 
 
