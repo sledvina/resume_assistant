@@ -1,0 +1,37 @@
+<h1>Listing activity_entries</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Position</th>
+      <th>Organization</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th>Description</th>
+      <th>Resume</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @activity_entries.each do |activity_entry| %>
+      <tr>
+        <td><%= activity_entry.position %></td>
+        <td><%= activity_entry.organization %></td>
+        <td><%= activity_entry.start_date %></td>
+        <td><%= activity_entry.end_date %></td>
+        <td><%= activity_entry.description %></td>
+        <td><%= activity_entry.resume %></td>
+        <td><%= link_to 'Show', activity_entry %></td>
+        <td><%= link_to 'Edit', edit_activity_entry_path(activity_entry) %></td>
+        <td><%= link_to 'Destroy', activity_entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Activity entry', new_activity_entry_path %>

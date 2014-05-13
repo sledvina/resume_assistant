@@ -1,11 +1,14 @@
 ResumeAssistant::Application.routes.draw do
+  resources :activity_entries
+  resources :work_entries
   resources :users
-
   resources :education_entries
-
   resources :resumes
   resources :entries
-  root 'resumes#index'
+  
+  root 'users#index'
+  #match '/users/:id/resumes(.:format)',    to: 'user#resumes',    via: 'get'
+  
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

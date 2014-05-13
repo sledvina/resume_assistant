@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+
+<p>
+ <strong> Resume: </strong>
+ <%= @activity_entry.resume.try(:resume_name) %> <br>
+ <%= @activity_entry.resume.try(:resume_id) %>
+</p>
+
+<p>
+  <strong>Position:</strong>
+  <%= @activity_entry.position %>
+</p>
+
+<p>
+  <strong>Organization:</strong>
+  <%= @activity_entry.organization %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @activity_entry.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @activity_entry.end_date %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @activity_entry.description %>
+</p>
+
+<p>
+  <strong>Resume:</strong>
+  <%= @activity_entry.resume %>
+</p>
+
+<%= link_to 'Edit', edit_activity_entry_path(@activity_entry) %> |
+<%= link_to 'New Entry', new_entry_path %> | 
+<%= link_to 'Show Resume', resume_path(@currentResume) %> |
+<%= link_to 'User Page', user_path(@user) %>

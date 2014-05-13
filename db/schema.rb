@@ -11,10 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140513024100) do
+ActiveRecord::Schema.define(version: 20140513174510) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "activity_entries", force: true do |t|
+    t.string   "position"
+    t.string   "organization"
+    t.string   "start_date"
+    t.string   "end_date"
+    t.string   "description"
+    t.integer  "resume_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "activity_entries", ["resume_id"], name: "index_activity_entries_on_resume_id", using: :btree
 
   create_table "education_entries", force: true do |t|
     t.string   "school"
@@ -58,5 +71,18 @@ ActiveRecord::Schema.define(version: 20140513024100) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "work_entries", force: true do |t|
+    t.string   "Position"
+    t.string   "Company"
+    t.string   "start_date"
+    t.string   "end_date"
+    t.string   "description"
+    t.integer  "resume_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "work_entries", ["resume_id"], name: "index_work_entries_on_resume_id", using: :btree
 
 end

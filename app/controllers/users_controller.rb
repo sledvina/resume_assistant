@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  
+  #has_many :resumes
 
   # GET /users
   # GET /users.json
@@ -10,7 +12,62 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    #Get Resume this entry belongs to
+    @Resumes = Resume.all
+    @UsersResumes = Array.new
+    @EducationEntries = Array.new
+    @ActivityEntries = Array.new
+    @WorkEntries = Array.new
+    
+    @Resumes.each do |resume|
+      if resume.user_id == @user.id
+       @UsersResumes.push(resume)
+      end
+      
+      #Get Education Entries
+      @Educations = EducationEntry.all
+      @Educations.each do |education|
+        if education.resume_id == resume.id
+    
+          @EducationEntries.push(education)
+        end
+      end 
+  
+      #Get Work Entries
+      @Works = WorkEntry.all
+      @Works.each do |work|
+        if work.resume_id == resume.id
+    
+          @WorkEntries.push(work)
+        end
+      end 
+  
+      #Get Work Entries
+      @Activities = ActivityEntry.all
+      @Activities.each do |activity|
+        if activity.resume_id == resume.id
+          @ActivityEntries.push(activity)
+        end
+      end 
+      
+    end #end loop
+    
+    
   end
+  
+  #Desired Functionality
+  # GET /users/1/resumes
+  # def resumes
+#     #Get Resume this entry belongs to
+#     @Resumes = Resume.all
+#     @UsersResumes = Array.new
+#     @Resumes.each do |resume|
+#       if resume.user_id == @user.id
+#     
+#        @UsersResumes.push(resume)
+#       end
+#     end 
+#   end
 
   # GET /users/new
   def new

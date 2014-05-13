@@ -1,64 +1,48 @@
 <%= @resume.date_created = Date.current() %>
 <p id="notice"><%= notice %></p>
 
-
-
-<p> <strong>Your Resume Information:</strong></p>
 <p>
-  <strong>User:</strong>
-  <%= @resume.user %>
+ <strong> User: </strong>
+ <%= @resume.user.try(:name) %> <br>
+ <%= @resume.user.try(:user_id) %>
 </p>
 
-<p>
+<h3>General Information</h3>
+<div>
   <strong>Resume Name:</strong>
   <%= @resume.resume_name %>
-</p>	
+</div>
 
-<p>
+<div>
   <strong>Date Created:</strong>
   <%= @resume.date_created %>
-</p>
+</div>
 
-<p>
+<div>
   <strong>Name:</strong>
   <%= @resume.user_name %>
-</p>
+</div>
 
-<p>
+<div>
   <strong>Email:</strong>
   <%= @resume.email %>
-</p>
+</div>
 
-<p>
+<div>
   <strong>Phone:</strong>
   <%= @resume.phone %>
-</p>
+</div>
 
-<p>
+<div>
   <strong>Address:</strong>
   <%= @resume.address %>
-</p>
+</div>
+<%= link_to 'Edit', edit_resume_path(@resume) %> |
+<%= link_to 'Back', user_path(@user) %>
 
-<p> <strong>Your Formatted Resume:</strong></p>
-
-</p>	
-  <%= @resume.user_name %>
-</p>
-
-<p>
-  <%= @resume.email %>
-</p>
-
-<p>
-  <%= @resume.phone %>
-</p>
-
-<p>
-  <%= @resume.address %>
-</p>
-
+<h3>-- Education --</h3>
 <p> 
-  <% @Posts.each do |post| %>
+  <% @EducationPosts.each do |post| %>
   <div>
    <strong> School: </strong>
    <%= post.school %>
@@ -91,9 +75,83 @@
   	
 	<br>
 	
+    <td><%= link_to 'Show', post %></td>
+    <td><%= link_to 'Edit', edit_education_entry_path(post) %></td>
+    <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	
   <% end %>
 </p>
 
+<h3>-- Work Experience --</h3>
+<p> 
+  <% @WorkPosts.each do |post| %>
+  <div>
+	<div>
+   <strong> Position: </strong>
+   <%= post.Position %>
+	</div>
+   
+   <div>
+    <strong> Company: </strong>
+    <%= post.Company %>
+   </div>
+  
+   <div>
+    <strong> Start Date: </strong>
+    <%= post.start_date %>
+   </div>
+	
+   <div>
+    <strong> End Date: </strong>
+    <%= post.end_date %>
+   </div>
+  
+   <div>
+    <strong> Description: </strong>
+    <%= post.description %>
+   </div>
+  </div>
+  
+  <td><%= link_to 'Show', post %></td>
+  <td><%= link_to 'Edit', edit_work_entry_path(post) %></td>
+  <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  
+   <% end %>
+</p>
 
-<%= link_to 'Edit', edit_resume_path(@resume) %> |
-<%= link_to 'Back', resumes_path %>
+<h3>-- Extracurricular Experience --</h3>
+<p> 
+  <% @ActivityPosts.each do |post| %>
+  <div>
+	<div>
+   	   	<strong> Position: </strong>
+   	 	<%= post.position %>
+	</div>
+   
+    <div>
+     <strong> Organization: </strong>
+     <%= post.organization %>
+    </div>
+  
+    <div>
+     <strong> Start Date: </strong>
+     <%= post.start_date %>
+    </div>
+	
+    <div>
+     <strong> End Date: </strong>
+     <%= post.end_date %>
+    </div>
+  
+    <div>
+     <strong> Description: </strong>
+     <%= post.description %>
+  </div>
+  
+  <td><%= link_to 'Show', post %></td>
+  <td><%= link_to 'Edit', edit_activity_entry_path(post) %></td>
+  <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  
+   <% end %>
+</p>
+

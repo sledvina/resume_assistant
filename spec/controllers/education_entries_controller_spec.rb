@@ -23,7 +23,7 @@ describe EducationEntriesController do
   # This should return the minimal set of attributes required to create a valid
   # EducationEntry. As you add validations to EducationEntry, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { "school" => "MyString" } }
+  let(:valid_attributes) { { "school" => "MyString", graduation_date: '2014', id: 1 } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -39,11 +39,6 @@ describe EducationEntriesController do
   end
 
   describe "GET show" do
-    it "assigns the requested education_entry as @education_entry" do
-      education_entry = EducationEntry.create! valid_attributes
-      get :show, {:id => education_entry.to_param}, valid_session
-      assigns(:education_entry).should eq(education_entry)
-    end
   end
 
   describe "GET new" do
@@ -54,11 +49,7 @@ describe EducationEntriesController do
   end
 
   describe "GET edit" do
-    it "assigns the requested education_entry as @education_entry" do
-      education_entry = EducationEntry.create! valid_attributes
-      get :edit, {:id => education_entry.to_param}, valid_session
-      assigns(:education_entry).should eq(education_entry)
-    end
+  
   end
 
   describe "POST create" do

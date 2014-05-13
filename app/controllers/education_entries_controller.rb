@@ -10,6 +10,10 @@ class EducationEntriesController < ApplicationController
   # GET /education_entries/1
   # GET /education_entries/1.json
   def show
+    #Get Resume and user this entry belongs to
+      @tempResume = Resume.find_by id: @education_entry.resume_id
+      @currentResume = @tempResume.id
+      @user = User.find_by id: @tempResume.user_id
   end
 
   # GET /education_entries/new
@@ -19,6 +23,10 @@ class EducationEntriesController < ApplicationController
 
   # GET /education_entries/1/edit
   def edit
+    #Get Resume and user this entry belongs to
+      @tempResume = Resume.find_by id: @education_entry.resume_id
+      @currentResume = @tempResume.id
+      @user = User.find_by id: @tempResume.user_id
   end
 
   # POST /education_entries

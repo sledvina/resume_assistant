@@ -16,16 +16,38 @@ class ResumesController < ApplicationController
   #      entries.add(entry)
   #    end  
   #  end  
-  @Categories = EducationEntry.all
-  @Posts = Array.new
-  @Categories.each do |category|
-    if category.resume_id == @resume.id
+  
+  #Get Education Entries
+  @Educations = EducationEntry.all
+  @EducationPosts = Array.new
+  @Educations.each do |education|
+    if education.resume_id == @resume.id
     
-      @Posts.push(category)
+      @EducationPosts.push(education)
     end
   end 
   
+  #Get Work Entries
+  @Works = WorkEntry.all
+  @WorkPosts = Array.new
+  @Works.each do |work|
+    if work.resume_id == @resume.id
+    
+      @WorkPosts.push(work)
+    end
+  end 
   
+  #Get Work Entries
+  @Activities = ActivityEntry.all
+  @ActivityPosts = Array.new
+  @Activities.each do |activity|
+    if activity.resume_id == @resume.id
+    
+      @ActivityPosts.push(activity)
+    end
+  end 
+  
+  @user = User.find_by id: @resume.user_id
   end
 
   # GET /resumes/new
@@ -35,6 +57,7 @@ class ResumesController < ApplicationController
 
   # GET /resumes/1/edit
   def edit
+    @user = User.find_by id: @resume.user_id
   end
 
   # POST /resumes

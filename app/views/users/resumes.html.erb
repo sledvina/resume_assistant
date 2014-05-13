@@ -1,0 +1,35 @@
+<h1>Your Resumes</h1>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Address</th>
+      <th>User</th>
+	  <th>Date Created</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+	  
+    <% @UsersResumes.each do |resume| %>
+      <tr>
+        <td><%= resume.user_name %></td>
+        <td><%= resume.email %></td>
+        <td><%= resume.phone %></td>
+        <td><%= resume.address %></td>
+        <td><%= resume.user %></td>
+		<td><%= resume.date_created %></td>
+        <td><%= link_to 'Show', resume %></td>
+        <td><%= link_to 'Edit', edit_resume_path(resume) %></td>
+        <td><%= link_to 'Destroy', resume, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

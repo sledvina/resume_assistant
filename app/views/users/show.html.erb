@@ -1,14 +1,152 @@
 <p id="notice"><%= notice %></p>
 
-<p>
+<h3> User Info </h3>
   <strong>Name:</strong>
   <%= @user.name %>
-</p>
-
-<p>
   <strong>Email:</strong>
   <%= @user.email %>
-</p>
+
+<br>
+<br>
+
+<h1> Your Resumes </h1>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Address</th>
+      <th>User</th>
+	  <th>Date Created</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+	  
+    <% @UsersResumes.each do |resume| %>
+      <tr>
+        <td><%= resume.user_name %></td>
+        <td><%= resume.email %></td>
+        <td><%= resume.phone %></td>
+        <td><%= resume.address %></td>
+        <td><%= resume.user.name %></td>
+		<td><%= resume.date_created %></td>
+        <td><%= link_to 'Show', resume %></td>
+        <td><%= link_to 'Edit', edit_resume_path(resume) %></td>
+        <td><%= link_to 'Destroy', resume, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h2>Education Entries:</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>School</th>
+      <th>Graduation date</th>
+      <th>Degree</th>
+      <th>Major</th>
+      <th>Gpa</th>
+      <th>Accolades</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @EducationEntries.each do |education_entry| %>
+      <tr>
+        <td><%= education_entry.school %></td>
+        <td><%= education_entry.graduation_date %></td>
+        <td><%= education_entry.degree %></td>
+        <td><%= education_entry.major %></td>
+        <td><%= education_entry.gpa %></td>
+        <td><%= education_entry.accolades %></td>
+        <td><%= link_to 'Show', education_entry %></td>
+        <td><%= link_to 'Edit', edit_education_entry_path(education_entry) %></td>
+        <td><%= link_to 'Destroy', education_entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<h2>Work Entries:</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Position</th>
+      <th>Company</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @WorkEntries.each do |work_entry| %>
+      <tr>
+        <td><%= work_entry.Position %></td>
+        <td><%= work_entry.Company %></td>
+        <td><%= work_entry.start_date %></td>
+        <td><%= work_entry.end_date %></td>
+        <td><%= work_entry.description %></td>
+        <td><%= link_to 'Show', work_entry %></td>
+        <td><%= link_to 'Edit', edit_work_entry_path(work_entry) %></td>
+        <td><%= link_to 'Destroy', work_entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<h2>Activity Entries:</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Position</th>
+      <th>Organization</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th>Description</th>
+      <th>Resume</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ActivityEntries.each do |activity_entry| %>
+      <tr>
+        <td><%= activity_entry.position %></td>
+        <td><%= activity_entry.organization %></td>
+        <td><%= activity_entry.start_date %></td>
+        <td><%= activity_entry.end_date %></td>
+        <td><%= activity_entry.description %></td>
+        <td><%= activity_entry.resume.resume_name %></td>
+        <td><%= link_to 'Show', activity_entry %></td>
+        <td><%= link_to 'Edit', edit_activity_entry_path(activity_entry) %></td>
+        <td><%= link_to 'Destroy', activity_entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'User Index', users_path %> 

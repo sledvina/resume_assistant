@@ -5,6 +5,9 @@ class EntriesController < ApplicationController
   # GET /entries.json
   def index
     @entries = Entry.all
+    @education_entries = EducationEntry.all
+    @work_entries = WorkEntry.all
+    @activity_entries = ActivityEntry.all
   end
 
   # GET /entries/1

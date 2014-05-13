@@ -1,0 +1,35 @@
+<h1>Listing work_entries</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Position</th>
+      <th>Company</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @work_entries.each do |work_entry| %>
+      <tr>
+        <td><%= work_entry.Position %></td>
+        <td><%= work_entry.Company %></td>
+        <td><%= work_entry.start_date %></td>
+        <td><%= work_entry.end_date %></td>
+        <td><%= work_entry.description %></td>
+        <td><%= link_to 'Show', work_entry %></td>
+        <td><%= link_to 'Edit', edit_work_entry_path(work_entry) %></td>
+        <td><%= link_to 'Destroy', work_entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Work entry', new_work_entry_path %>

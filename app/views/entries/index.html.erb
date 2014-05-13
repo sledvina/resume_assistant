@@ -1,8 +1,85 @@
-<h1>Listing entries</h1>
+<h1>List of all Entries</h1>
+
+<h2>Education Entries:</h2>
 
 <table>
   <thead>
     <tr>
+      <th>School</th>
+      <th>Graduation date</th>
+      <th>Degree</th>
+      <th>Major</th>
+      <th>Gpa</th>
+      <th>Accolades</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @education_entries.each do |education_entry| %>
+      <tr>
+        <td><%= education_entry.school %></td>
+        <td><%= education_entry.graduation_date %></td>
+        <td><%= education_entry.degree %></td>
+        <td><%= education_entry.major %></td>
+        <td><%= education_entry.gpa %></td>
+        <td><%= education_entry.accolades %></td>
+        <td><%= link_to 'Show', education_entry %></td>
+        <td><%= link_to 'Edit', edit_education_entry_path(education_entry) %></td>
+        <td><%= link_to 'Destroy', education_entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<h2>Work Entries:</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Position</th>
+      <th>Company</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @work_entries.each do |work_entry| %>
+      <tr>
+        <td><%= work_entry.Position %></td>
+        <td><%= work_entry.Company %></td>
+        <td><%= work_entry.start_date %></td>
+        <td><%= work_entry.end_date %></td>
+        <td><%= work_entry.description %></td>
+        <td><%= link_to 'Show', work_entry %></td>
+        <td><%= link_to 'Edit', edit_work_entry_path(work_entry) %></td>
+        <td><%= link_to 'Destroy', work_entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<h2>Work Entries:</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Position</th>
+      <th>Organization</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th>Description</th>
       <th>Resume</th>
       <th></th>
       <th></th>
@@ -11,17 +88,25 @@
   </thead>
 
   <tbody>
-    <% @entries.each do |entry| %>
+    <% @activity_entries.each do |activity_entry| %>
       <tr>
-        <td><%= entry.resume %></td>
-        <td><%= link_to 'Show', entry %></td>
-        <td><%= link_to 'Edit', edit_entry_path(entry) %></td>
-        <td><%= link_to 'Destroy', entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= activity_entry.position %></td>
+        <td><%= activity_entry.organization %></td>
+        <td><%= activity_entry.start_date %></td>
+        <td><%= activity_entry.end_date %></td>
+        <td><%= activity_entry.description %></td>
+        <td><%= activity_entry.resume.resume_name %></td>
+        <td><%= link_to 'Show', activity_entry %></td>
+        <td><%= link_to 'Edit', edit_activity_entry_path(activity_entry) %></td>
+        <td><%= link_to 'Destroy', activity_entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
+<h2>Create a New Entry of Type:</h2>
+<%= link_to 'Education', new_education_entry_path %> |
+<%= link_to 'Work', new_work_entry_path %> |
+<%= link_to 'Activity', new_activity_entry_path %> 
 
-<%= link_to 'New Entry', new_entry_path %>
+
