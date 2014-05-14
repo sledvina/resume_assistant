@@ -78,6 +78,6 @@ class WorkEntriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def work_entry_params
-      params.require(:work_entry).permit(:Position, :Company, :start_date, :end_date, :description, :resume_id)
+      params.require(:work_entry).permit(:Position, :Company, :start_date, :end_date, :description, :resume_id, :resume)
     end
 end
