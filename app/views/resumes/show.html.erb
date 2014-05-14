@@ -82,6 +82,8 @@
   <% end %>
 </p>
 
+<%= link_to 'New Education Entry', new_education_entry_path %>
+
 <h3>-- Work Experience --</h3>
 <p> 
   <% @WorkPosts.each do |post| %>
@@ -119,7 +121,9 @@
    <% end %>
 </p>
 
-<h3>-- Extracurricular Experience --</h3>
+<%= link_to 'New Work Entry', new_work_entry_path %>
+
+<h3>-- Activity Experience --</h3>
 <p> 
   <% @ActivityPosts.each do |post| %>
   <div>
@@ -154,6 +158,7 @@
   
    <% end %>
    
+   <%= link_to 'New Activity Entry', new_activity_entry_path %> 
    
 </p>
 
