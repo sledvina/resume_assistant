@@ -74,6 +74,7 @@
         <td><%= link_to 'Show', education_entry %></td>
         <td><%= link_to 'Edit', edit_education_entry_path(education_entry) %></td>
         <td><%= link_to 'Destroy', education_entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		<td> <%= link_to 'Show Formatted Entry', education_entry_show_formatted_path(education_entry)%> </td>
       </tr>
     <% end %>
   </tbody>

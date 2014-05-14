@@ -6,6 +6,9 @@ ResumeAssistant::Application.routes.draw do
   resources :resumes
   resources :entries
   
+  
+  match "/education_entries/:id/show_formatted" => 'education_entries#show_formatted', via: 'get', :as => :education_entry_show_formatted 
+  
   root 'users#index'
   #match '/users/:id/resumes(.:format)',    to: 'user#resumes',    via: 'get'
   

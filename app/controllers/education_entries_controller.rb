@@ -1,5 +1,5 @@
 class EducationEntriesController < ApplicationController
-  before_action :set_education_entry, only: [:show, :edit, :update, :destroy]
+  before_action :set_education_entry, only: [:show, :show_formatted, :edit, :update, :destroy]
 
   # GET /education_entries
   # GET /education_entries.json
@@ -14,6 +14,12 @@ class EducationEntriesController < ApplicationController
       @tempResume = Resume.find_by id: @education_entry.resume_id
       @currentResume = @tempResume.id
       @user = User.find_by id: @tempResume.user_id
+  end
+  
+  def show_formatted
+    @tempResume = Resume.find_by id: @education_entry.resume_id
+    @currentResume = @tempResume.id
+    @user = User.find_by id: @tempResume.user_id
   end
 
   # GET /education_entries/new

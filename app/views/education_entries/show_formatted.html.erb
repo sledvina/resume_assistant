@@ -1,0 +1,24 @@
+
+
+ <font size="6"><strong>Education </strong></font><br>
+ ------------------------------------------------------------------------------------------------------------------
+  <br>
+  <font size="3"><strong ><%= @education_entry.school %> </strong> </font><br>
+  <br>
+  <font size="3"><%= @education_entry.degree %>, <%= @education_entry.graduation_date %></font><br>
+  <br>
+  <font size="3">Majors(s): <%= @education_entry.major %></font><br>
+  <br>
+  <font size="3"><%= @education_entry.accolades %></font><br>
+  <br>
+ <font size="3"> GPA: <%= @education_entry.gpa %></font><br>
+  
+
+<br><br><br>
+<%= link_to 'User Page', user_path(@user) %>
+<p id="notice"><%= notice %></p>
+
+<p>
+ <strong> Resume: </strong>
+ <%= @education_entry.resume.try(:resume_name) %> <br>
+ <%= @education_entry.resume.try(:resume_id) %>
