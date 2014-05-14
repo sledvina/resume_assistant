@@ -19,6 +19,7 @@ class ActivityEntriesController < ApplicationController
   # GET /activity_entries/new
   def new
     @activity_entry = ActivityEntry.new
+    
   end
 
   # GET /activity_entries/1/edit
