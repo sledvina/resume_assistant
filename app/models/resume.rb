@@ -8,5 +8,6 @@ class Resume < ActiveRecord::Base
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
                       uniqueness: { case_sensitive: false }
   validates :phone, presence: true  
+  validates :user, presence: true
                     
 end

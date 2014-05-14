@@ -11,15 +11,10 @@ class WorkEntriesController < ApplicationController
   # GET /work_entries/1.json
   def show
     #Get Resume and user this entry belongs to
-    if @work_entry.resume_id?
       @tempResume = Resume.find_by id: @work_entry.resume_id
       @currentResume = @tempResume.id
-      if @currentResume.user_id?
-        @user = User.find_by id: @currentResume.user_id
-      end
-    end  
-   
-    
+      @user = User.find_by id: @tempResume.user_id
+
   end
 
   # GET /work_entries/new
