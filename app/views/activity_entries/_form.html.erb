@@ -31,11 +31,7 @@
     <%= f.label :description %><br>
     <%= f.text_field :description %>
   </div>
-  <div class="field">
-    <%= f.label :resume %><br>
-    <%= f.text_field :resume %>
-	
-  #Drop down for selecting resume
+ 
   <div class="field">
     <%= f.label :resume %><br>
  	<%= f.collection_select :resume_id, Resume.all, :id, :resume_name, :prompt =>
