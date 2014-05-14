@@ -22,7 +22,7 @@ class UsersController < ApplicationController
     @Resumes.each do |resume|
       if resume.user_id == @user.id
        @UsersResumes.push(resume)
-      end
+      
       
       #Get Education Entries
       @Educations = EducationEntry.all
@@ -49,7 +49,7 @@ class UsersController < ApplicationController
           @ActivityEntries.push(activity)
         end
       end 
-      
+    end # if resume.user_id = @user.id
     end #end loop
     
     
