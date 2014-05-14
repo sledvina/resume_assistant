@@ -5,6 +5,7 @@
  <strong> User: </strong>
  <%= @resume.user.try(:name) %> <br>
  <%= @resume.user.try(:user_id) %>
+ <%= link_to 'Go to Your User Page', user_path(@user) %>
 </p>
 
 <h3>General Information</h3>
@@ -79,6 +80,7 @@
     <td><%= link_to 'Edit', edit_education_entry_path(post) %></td>
     <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 	
+	<br>
   <% end %>
 </p>
 
@@ -118,6 +120,7 @@
   <td><%= link_to 'Edit', edit_work_entry_path(post) %></td>
   <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   
+  <br>
    <% end %>
 </p>
 
@@ -156,6 +159,7 @@
   <td><%= link_to 'Edit', edit_activity_entry_path(post) %></td>
   <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   
+  <br>
    <% end %>
   </p> 
    <%= link_to 'New Activity Entry', new_activity_entry_path %> 
